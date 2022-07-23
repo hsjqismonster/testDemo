@@ -1,0 +1,21 @@
+.small-view .big-view{
+	display:none;
+}
+
+.small-view .feedback{
+	display:none;
+}
+
+.big-view .remark{
+	width:45%;
+	display:block;
+	float:left;
+	margin-right:5%;
+}
+
+.big-view .feedback{
+	margin-left:5%;
+	width:45%;
+	display:block;
+	float:right;
+}

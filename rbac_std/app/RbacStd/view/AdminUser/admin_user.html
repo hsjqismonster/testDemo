@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/style.css">
+    <title>管理员列表</title>
+</head>
+<body>
+<div  align="center">
+    <table class="table">
+        <th colspan="11">管理员列表</th>
+        <tr>
+            <td>管理员id</td>
+            <td>管理员职能</td>
+            <td>用户名</td>
+            <td>邮箱</td>
+            <td>上次登陆时间</td>
+            <td>上次登陆ip</td>
+            <td>登陆次数</td>
+            <td colspan="2">
+                <a href="create.html">
+					<button class="long_button add_after long_button_2">
+						<span><i class="fa fa-plus-circle"></i> 添加</span>
+					</button>
+                </a>
+            </td>
+        </tr>
+        {volist name="admin_user_list" id="admin_user"}
+            <tr>
+                <td>{$admin_user.id}</td>
+                <td>{$admin_user.title}</td>
+                <td>{$admin_user.username}</td>
+                <td>{$admin_user.email}</td>
+                <td>{$admin_user.last_login_time}</td>
+                <td>{$admin_user.last_login_ip}</td>
+                <td>{$admin_user.login_num}</td>
+                <td colspan="2">
+                    <a href="update.html?id={$admin_user.id}">
+						<button class="button">
+							<span>修改</span>
+						</button>
+                    </a>
+                    <a href="post.html?method=delete&id={$admin_user.id}">
+						<button class="button">
+							<span>删除</span>
+						</button>
+                    </a>
+                </td>
+            </tr>
+        {/volist}
+    </table>
+</div>
+</body>
+</html>

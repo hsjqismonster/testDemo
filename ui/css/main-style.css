@@ -1,0 +1,77 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    overflow: hidden;
+}
+nav {
+    padding: .2rem 0.5rem;
+}
+
+#container {
+    position: absolute;
+    padding-top: 60px;
+    height: 100%;
+    width: 100%;
+}
+#blocklyArea {
+    height: 100%;
+}
+ul.navbar-nav{
+    padding-left: 60px;
+}
+
+.modal-body img {
+    display: inline-block;
+    float: left;
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    width: 50%;
+    height: auto;
+}
+
+.dropdown.change_language {
+    float: right;
+    padding: 10px;
+}
+.dropdown-menu{
+    left: -50px;
+    min-width: 50px;
+}
+
+.blocklyTreeRow {
+    height: 40px;
+    line-height: 0;
+    margin-bottom: 6px;
+}
+.toolboxIcon {
+    display: inline-block;
+    position: relative;
+    top: 20px;
+    left: 8px;
+    font-size: 24px;
+    color: #fff;
+    float: left;
+    height: 0;
+    visibility: hidden;
+}
+.blocklyTreeLabel {
+    font-family: sans-serif;
+    position: relative;
+    top: 20px;
+    float: left;
+    font-size: 14pt;
+    color: black;
+    padding: 0 0 0 3px;
+}
+.blocklyFlyoutBackGround {
+    fill: #fadaa6;
+    fill-opacity: 0.925;
+}
+
+

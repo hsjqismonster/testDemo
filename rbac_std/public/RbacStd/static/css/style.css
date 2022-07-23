@@ -1,0 +1,131 @@
+.button {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #888888;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 80px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 3px;
+}
+
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.button span:before {
+	content: '\5B';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: -30px;
+	transition: 0.5s;
+}
+
+.button span:after {
+	content: '\5D';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -30px;
+	transition: 0.5s;
+}
+
+.button:hover span:after {
+	opacity: 1;
+	right: -8px;
+}
+
+.button:hover span:before {
+	opacity: 1;
+	left: -8px;
+}
+
+.long_button {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #888888;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	width:120px;
+}
+
+.long_button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.long_button:hover span {
+	padding-right: 15px;
+}
+
+.long_button_1 {
+	width: 120px;
+}
+
+.long_button_2 {
+	width: 160px;
+}
+
+.long_button_3 {
+	width: 260px;
+}
+
+.table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	-moz-border-radius:10px;  
+    -webkit-border-radius:10px;  
+    border-radius:10px;
+}
+
+.table td, .table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+
+}
+
+.top-radius{
+	-moz-border-radius-topleft:10px;  
+    -webkit-border-top-left-radius:10px;  
+    border-top-left-radius:10px;
+	-moz-border-radius-topright:10px;  
+    -webkit-border-top-right-radius:10px;  
+    border-top-right-radius:10px
+}
+
+.description_textarea{
+	width:170px;
+	height:100px;
+}

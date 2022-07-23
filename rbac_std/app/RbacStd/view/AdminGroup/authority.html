@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理</title>
+	<link type="text/css" rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/style.css">
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/admin_groups_authority.css">
+	<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <h3><i>{$admin_group.title}</i> 的权限配置</h3>
+	<form action="set_auth.html?id={$admin_group.id}" method="post" id="authority">
+		<hr/>
+        <input id="check_all" onclick="all_onclick()" type="checkbox" class="node">所有节点</input>
+		<input id="check_exist" type="text" value={$root_id} name={$root_id} hidden readonly>
+		{foreach  $node_array as $key=>$node_list}
+			<div id="{$node_list.unicode}_div" class="group">
+				<h5>{$node_list.title}:</h5>
+				<input id={$node_list.unicode} class="node group_all" onclick="group_onclick('{$node_list.unicode}')" type="checkbox">所有结点</input>
+				<input class="{$node_list.unicode}_exist node" type="checkbox" value={$node_list.id} {$node_list.checked} name={$node_list.id} hidden>
+				<span>
+					{foreach $node_list.children as $key=>$node}
+						<input class="{$node_list.unicode}_item node" onclick="item_onclick('{$node_list.unicode}')" type="checkbox" {$node.checked} value={$node.id} name={$node.id}>{$node.title}</input>
+					{/foreach}
+				</span>
+			</div>
+			</br>
+			<script>
+				$('#{$node_list.unicode}_div').ready(function() {
+					var group_count = 0;
+					element = '{$node_list.unicode}';
+					all = '#' +element;
+					item = '.'+element+'_item';
+					exist = '.'+element+'_exist';
+					$(item).each(function(){
+						if($(this).prop("checked")){
+							group_count ++;
+						}
+					});
+					if(group_count==$(item).size()){
+						$("#"+element).prop("checked", true);
+					}else{
+						$("#"+element).prop("checked", false);
+					}
+					if(group_count>0){
+						$(exist).prop("checked", true);
+					}else{
+						$(exist).prop("checked", false);
+					}
+				});
+			</script>
+		{/foreach}
+		<hr/>
+		<div align="center">
+			<button type="submit" class="long_button search_after long_button_2">
+				<span><i class="fa fa-save"></i> 提交</span>
+			</button>
+		</div>
+	</form>
+    <script>
+        function all_onclick(){
+			if(document.getElementById("check_all").checked){
+                $(".node").prop("checked", true);
+            }
+            else{
+                $(".node").prop("checked", false);
+            }
+        }
+		function group_onclick(element){
+			item = '.'+element+'_item';
+			exist = '.'+element+'_exist';
+			if(document.getElementById(element).checked){
+                $(item).prop("checked", true);
+                $(exist).prop("checked", true);
+            }
+            else{
+                $(item).prop("checked", false);
+                $(exist).prop("checked", false);
+            }
+			var all_count = 0;
+			$('.group_all').each(function(){
+				if($(this).prop("checked")){
+					all_count ++;
+				}
+			});
+			if(all_count==$('.group_all').size()){
+				$("#check_all").prop("checked", true);
+			}else{
+				$("#check_all").prop("checked", false);
+			}
+        }
+		function item_onclick(element){
+			all = '#' +element;
+			item = '.'+element+'_item';
+			exist = '.'+element+'_exist';
+			var group_count = 0;
+			$(item).each(function(){
+				if($(this).prop("checked")){
+					group_count ++;
+				}
+			});
+			if(group_count==$(item).size()){
+				$("#"+element).prop("checked", true);
+			}else{
+				$("#"+element).prop("checked", false);
+			}
+			if(group_count>0){
+				$(exist).prop("checked", true);
+			}else{
+				$(exist).prop("checked", false);
+			}
+			var all_count = 0;
+			$('.group_all').each(function(){
+				if($(this).prop("checked")){
+					all_count ++;
+				}
+			});
+			if(all_count==$('.group_all').size()){
+				$("#check_all").prop("checked", true);
+			}else{
+				$("#check_all").prop("checked", false);
+			}
+        }
+		
+		$(document).ready(function() {
+			var all_count = 0;
+			$('.group_all').each(function(){
+				if($(this).prop("checked")){
+					all_count ++;
+				}
+			});
+			if(all_count==$('.group_all').size()){
+				$("#check_all").prop("checked", true);
+			}else{
+				$("#check_all").prop("checked", false);
+			}
+		});
+    </script>
+</body>
+</html>

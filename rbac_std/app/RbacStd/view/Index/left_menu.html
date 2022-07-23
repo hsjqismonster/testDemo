@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/left_menu.css">
+	<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <title>left_menu</title>
+</head>
+<body>
+<div id="left_menu">
+	<ul>
+    {volist name="menu" id="item"}
+		<li class="left_menu_item" onclick="changePage(this)">
+			<a href={$item.href} target="content_frame">
+				<button class="button"><span>{$item.title}</span></button>
+			</a>
+		</li>
+	{/volist}
+	</ul>
+</div>
+<script>
+	function changePage(page){
+		$(".left_menu_item").css("background-color", "transparent");
+		$(page).css("background-color", "#aaaaaa");
+	}
+</script>
+</body>
+</html>

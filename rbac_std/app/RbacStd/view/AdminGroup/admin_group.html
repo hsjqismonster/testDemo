@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/style.css">
+    <title>工作组管理</title>
+</head>
+<body>
+<div align="center">
+    <table class="table">
+        <th colspan="8">工作组管理</th>
+        <tr>
+            <td>分组id</td>
+            <td>分组标题</td>
+            <td>分组描述</td>
+            <td colspan="2">
+                <a href="create.html">
+					<button class="long_button add_after long_button_3">
+						<span><i class="fa fa-plus-circle"></i> 添加</span>
+					</button>
+				</a>
+            </td>
+        </tr>
+        {volist name="admin_group_list" id="admin_group"}
+            <tr>
+                <td>{$admin_group.id}</td>
+                <td>{$admin_group.title}</td>
+                <td>{$admin_group.description}</td>
+                <td colspan="4">
+					<a href="authority.html?id={$admin_group.id}">
+						<button class="button">
+							<span>权限管理</span>
+						</button>
+                    </a>
+                    <a href="update.html?id={$admin_group.id}">
+						<button class="button">
+							<span>修改</span>
+						</button>
+                    </a>
+                    <a href="post.html?method=delete&id={$admin_group.id}">
+            			<button class="button">
+							<span>删除</span>
+						</button>
+                    </a>
+                </td>
+            </tr>
+        {/volist}
+    </table>
+</div>
+</body>
+</html>

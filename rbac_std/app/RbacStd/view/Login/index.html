@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="{:get_resource_path()}/static/css/login.css">
+    <title>登录</title>
+</head>
+<body>
+<div style="height:200px;"></div>
+<div align="center">
+    <form method="post">
+        <table border="0">
+            <th colspan="2">
+                欢迎来到拼单信息管理系统
+            </th>
+            <tr>
+                <td>账号</td>
+                <td><input type="text" required="required" name="username" placeholder="输入账号"  style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" required="required" name="password" placeholder="输入密码"  style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" id="ajax"><span style="font-size:50%;">登录</span></button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $(function() {
+        $("#ajax").on("click", function() {
+			var aj = $.ajax( {    
+				url:"{:url('Login/verify')}",// 跳转到 action    
+				data:{    
+					username: $("input[name=username]").val(),
+                    password: $("input[name=password]").val()  
+				},    
+				type:'post',    
+				cache:false,    
+				dataType:'json',    
+				success:function($data) {
+					console.log($data);
+					if($data.status =='1' ){    					
+						window.location.href=$data.url;    
+					}else{    
+						alert($data.info);   
+					}    
+				},    
+				error : function() {    
+					alert("登陆异常");    
+				}    
+			}); 
+        });
+    });
+</script>

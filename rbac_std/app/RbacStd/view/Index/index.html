@@ -1,0 +1,26 @@
+<html>
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<iframe id="top_frame" src="{:url('Index/top_menu')}" name="top_frame" width="100%" height="80" style="min-width:1160px;" frameborder="0"></iframe>
+<br/>
+<iframe id="left_frame" src="{:url('Index/left_menu')}" name="left_frame" width="10%" style="min-width:160px;" frameborder="0"></iframe></td>
+<iframe id="content_frame" src="{:url('Index/home')}" name="content_frame" frameborder="0" scrolling="yes"></iframe></td>
+<script>
+	$( window ).resize(function() {
+			$("#left_frame").height($(window).height()-$("#top_frame").height()-10);
+			$("#content_frame").height($("#left_frame").height());
+			$("#left_frame").css("position","absolute");
+			$("#content_frame").width($("#top_frame").width()-$("#left_frame").width());
+			$("#content_frame").css("margin-left",$("#left_frame").width());
+	});
+	$(function() {
+		$("#left_frame").height($(window).height()-$("#top_frame").height()-10);
+		$("#content_frame").height($("#left_frame").height());
+		$("#left_frame").css("position","absolute");
+		$("#content_frame").width($("#top_frame").width()-$("#left_frame").width());
+		$("#content_frame").css("margin-left",$("#left_frame").width());
+	});
+</script>
+</html>
+
+
